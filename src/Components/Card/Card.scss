@@ -1,0 +1,32 @@
+@import "../../variables.scss";
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px $greyScale3 solid;
+  background: white;
+
+  -webkit-box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
+}
+
+
+//CARD TYPES: 
+
+.main {
+  width: 45rem;
+  height: 15rem;
+
+  border-radius: 5px;
+  font-size: 4rem;
+}
+
+.choose {
+  width: 20rem;
+  height: 10rem;
+  
+  border-radius: 5px;
+  font-size: 2rem;
+}
