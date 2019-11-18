@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
 import './App.scss';
 
-import ChooseGame from './Scenes/ChooseGame';
+import ChooseGame from './Scenes/ChooseGame/ChooseGame';
 import WriteGame from './Scenes/WriteGame';
 import LinkGame from './Scenes/LinkGame';
 import News from './Scenes/News';

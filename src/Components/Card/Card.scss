@@ -12,7 +12,6 @@
   box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
 }
 
-
 //CARD TYPES: 
 
 .main {
@@ -21,6 +20,7 @@
 
   border-radius: 5px;
   font-size: 4rem;
+  margin: 0.5rem 0 3rem 0;
 }
 
 .choose {
@@ -29,4 +29,16 @@
   
   border-radius: 5px;
   font-size: 2rem;
+
+  &:hover { 
+    cursor: pointer;
+  }
+}
+
+.incorrect {
+  background-color: red;
+}
+
+.correct {
+  background: green;
 }

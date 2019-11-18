@@ -1,12 +1,9 @@
 import React from 'react';
 import './Card.scss';
 
-const Card = props => {
-  return ( 
-    <div className={`card ${props.type}`}>
-      <p className="card-text">Austrolopitecus</p>
-    </div> 
-  );
-}
+const Card = props => 
+  <div className={`card ${props.type}`} onClick={props.handleClick}>
+    {props.text}
+  </div>
  
 export default Card;

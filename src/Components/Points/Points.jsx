@@ -4,7 +4,7 @@ import './Points.scss';
 const Points = props => {
   return ( 
     <div>
-      <span className="points">10</span>
+      <span className="points">{props.points}</span>
     </div>
   );
 }

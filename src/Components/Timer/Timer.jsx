@@ -4,7 +4,7 @@ import './Timer.scss';
 const Timer = props => {
   return ( 
   <div>
-    <span className="timer">10</span>
+    <span className="timer">{props.timer}</span>
   </div>
   );
 }

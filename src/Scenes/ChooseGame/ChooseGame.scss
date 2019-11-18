@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+
+.choose-game {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+.choose-card-wrapper {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 45rem;
+  height: 25rem;
+  border-radius: 5px;
+  border: 3px inset $greyScale3;
+  background-color: $greyScale2;
+}
+
+.game-menu {
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 45rem;
+}
+
+.next-button {
+  display: flex;
+  justify-content: center;
+  border: 1px $greyScale3 solid;
+  background: white;
+  width: 10rem;
+  height: 3rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+  align-self: center;
+
+  -webkit-box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
+
+  &:hover { 
+    cursor: pointer;
+  }
+}
