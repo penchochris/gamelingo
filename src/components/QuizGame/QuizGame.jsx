@@ -1,29 +1,22 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { nextQuizSaga, selectQuizOptionSaga } from '../../actions/configActions';
-import { resetTimer } from '../../actions/timerActions';
+import { selectQuizOptionSaga, newGameSaga } from '../../actions/configActions';
+
 
 import Card from '../../components/Card/Card';
 
 import './QuizGame.scss';
 
 const QuizGame = () => {
-  
   const dispatch = useDispatch();
+
   const { quiz } = useSelector(state => state.game);
   const { currentQuiz } = useSelector(state => state.config);
-  const { seconds } = useSelector(state => state.timer);
 
   useEffect(() => {
-    dispatch(resetTimer());
-  }, [currentQuiz, dispatch]);
-
-  useEffect(() => {
-    if(seconds === 0) {
-      dispatch(nextQuizSaga());
-    }
-  }, [seconds, dispatch])
+    dispatch(newGameSaga());
+  }, [dispatch]);
 
   return (
     <div>

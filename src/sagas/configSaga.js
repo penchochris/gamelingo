@@ -3,15 +3,24 @@ import { put, takeLatest, select } from 'redux-saga/effects';
 import { 
   changeIsPlaying,
   nextQuiz,
-  scoreUp,
-  damageLifes,
-  nextQuizSaga,
-  resetLifes,
   resetQuiz,
+  scoreUp,
+  resetScore,
+  damageLifes,
+  resetLifes,
+  nextQuizSaga,
 } from '../actions/configActions';
-import { resetTimer } from '../actions/timerActions';
+import { resetTimer, startTimerSaga } from '../actions/timerActions';
 
 import { TYPES } from '../consts';
+
+function* newGame() {
+  yield put(resetLifes());
+  yield put(resetQuiz());
+  yield put(resetScore());
+  yield put(resetTimer());
+  yield put(startTimerSaga());
+}
 
 function* getNextQuestion() {
   const { config, game } = yield select();
@@ -20,11 +29,9 @@ function* getNextQuestion() {
 
   if(currentQuiz === quiz.length - 1 || lifes === 0) {
     yield put(changeIsPlaying());
-    yield put(resetLifes());
-    yield put(resetQuiz())
-    yield put(resetTimer());
   } else {
-    yield put(nextQuiz())
+    yield put(nextQuiz());
+    yield put(resetTimer());
   }
 }
 
@@ -46,4 +53,5 @@ function* selectQuizOption(action) {
 export const configSaga = [
   takeLatest(TYPES.NEXT_QUIZ_SAGA, getNextQuestion),
   takeLatest(TYPES.SELECT_QUIZ_OPTION_SAGA, selectQuizOption),
+  takeLatest(TYPES.NEW_GAME_SAGA, newGame)
 ];

@@ -17,6 +17,7 @@ export const configReducer = (state = initialState, action) => {
     [TYPES.RESET_LIFES]: { ...state, lifes: DEFAULT.TOTAL_LIFES },
     [TYPES.CHANGE_IS_PLAYING]: { ...state, isPlaying: !state.isPlaying },
     [TYPES.SCORE_UP]: { ...state, score: state.score + DEFAULT.SCORE_UP },
+    [TYPES.RESET_SCORE]: { ...state, score: 0 },
     [TYPES.NEXT_QUIZ]: { ...state, currentQuiz: state.currentQuiz + 1 },
     [TYPES.RESET_QUIZ]: { ...state, currentQuiz: 0 },
     [TYPES.SET_LANG_A]: { ...state, langA: action.langA },
