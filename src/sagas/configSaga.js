@@ -10,7 +10,7 @@ import {
   resetLifes,
   nextQuizSaga,
 } from '../actions/configActions';
-import { resetTimer, startTimerSaga } from '../actions/timerActions';
+import { resetTimer, startTimerSaga, stopTimerSaga } from '../actions/timerActions';
 
 import { TYPES } from '../consts';
 
@@ -20,6 +20,10 @@ function* newGame() {
   yield put(resetScore());
   yield put(resetTimer());
   yield put(startTimerSaga());
+}
+
+function* endGame() {
+  yield put(stopTimerSaga());
 }
 
 function* getNextQuestion() {
@@ -53,5 +57,6 @@ function* selectQuizOption(action) {
 export const configSaga = [
   takeLatest(TYPES.NEXT_QUIZ_SAGA, getNextQuestion),
   takeLatest(TYPES.SELECT_QUIZ_OPTION_SAGA, selectQuizOption),
-  takeLatest(TYPES.NEW_GAME_SAGA, newGame)
+  takeLatest(TYPES.NEW_GAME_SAGA, newGame),
+  takeLatest(TYPES.END_GAME_SAGA, endGame),
 ];

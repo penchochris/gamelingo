@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectQuizOptionSaga, newGameSaga } from '../../actions/configActions';
+import { selectQuizOptionSaga, newGameSaga, endGameSaga } from '../../actions/configActions';
 
 
 import Card from '../../components/Card/Card';
@@ -15,7 +15,14 @@ const QuizGame = () => {
   const { currentQuiz } = useSelector(state => state.config);
 
   useEffect(() => {
+
+  }, []);
+
+  useEffect(() => {
     dispatch(newGameSaga());
+    return () => {
+      dispatch(endGameSaga());
+    }
   }, [dispatch]);
 
   return (

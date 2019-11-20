@@ -1,6 +1,8 @@
 import { TYPES } from '../consts';
 
 export const newGameSaga = () => ({ type: TYPES.NEW_GAME_SAGA });
+export const endGameSaga = () => ({ type: TYPES.END_GAME_SAGA });
+
 export const damageLifes = () => ({ type: TYPES.DAMAGE_LIFES });
 export const resetLifes = () => ({ type: TYPES.RESET_LIFES });
 
