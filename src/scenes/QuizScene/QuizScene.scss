@@ -1,47 +1,23 @@
 @import '../../variables.scss';
 
-.quiz-wrapper {
+.quiz-scene-wrapper {
   display: flex;
   flex-flow: column;
-  align-items: center;
   justify-content: center;
-  height: 90vh;
-}
-.choose-card-wrapper {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: space-around;
   align-items: center;
-  width: 45rem;
-  height: 25rem;
-  border-radius: 5px;
-  border: 3px inset $greyScale3;
-  background-color: $greyScale2;
+  height: calc(100vh - #{$navHeight})
 }
 
-.game-menu {
-  display:flex;
-  justify-content:space-between;
-  align-items: center;
-  width: 45rem;
-}
-
-.next-button {
+.quiz-wrapper {
+  width: 900px;
   display: flex;
-  justify-content: center;
-  border: 1px $greyScale3 solid;
-  background: white;
-  width: 10rem;
-  height: 3rem;
-  font-size: 2rem;
-  margin-top: 1rem;
-  align-self: center;
+  flex-flow: column wrap;
+}
 
-  -webkit-box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
-  box-shadow: 7px 10px 9px -5px rgba(0,0,0,0.75);
-
-  &:hover { 
-    cursor: pointer;
+@media only screen and (max-width: 600px) {
+  .quiz-wrapper {
+    width: 300px;
+    display: flex;
+    flex-flow: column wrap;
   }
 }

@@ -16,7 +16,7 @@ import './NewGameMenu.scss';
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 400,
+    minWidth: 300,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -55,7 +55,7 @@ const NewGameMenu = () => {
                 native
                 value={values.langA}
                 onChange={handleChange}
-                labelWidth={400}
+                labelWidth={200}
                 inputProps={{
                   name: 'langA',
                 }}
@@ -77,7 +77,7 @@ const NewGameMenu = () => {
                 native
                 value={values.langB}
                 onChange={handleChange}
-                labelWidth={400}
+                labelWidth={200}
                 inputProps={{
                   name: 'langB',
                 }}
@@ -99,7 +99,7 @@ const NewGameMenu = () => {
                 native
                 value={values.category}
                 onChange={handleChange}
-                labelWidth={400}
+                labelWidth={200}
                 inputProps={{
                   name: 'category',
                 }}

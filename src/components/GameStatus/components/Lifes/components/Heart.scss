@@ -1,0 +1,18 @@
+.heart {
+  width: 45px;
+  height: 45px;
+  background-image: url('./heart.svg');
+  background-size: cover;
+}
+
+.red {
+  color: red;
+  filter: invert(34%) sepia(65%) saturate(7184%) hue-rotate(350deg) brightness(92%) contrast(136%);
+}
+
+@media only screen and (max-width: 600px) {
+  .heart {
+    width: 20px;
+    height: 20px;
+  }
+}

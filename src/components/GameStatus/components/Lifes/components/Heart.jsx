@@ -1,6 +1,7 @@
 import React from 'react';
-import heartSvg from './heart.svg';
 
-const Heart = props => <img alt="❤" className={props.type} src={heartSvg}/>
+import './Heart.scss';
+
+const Heart = props => <div className={`heart ${props.type}`}/>
  
 export default Heart;

@@ -26,8 +26,10 @@ const QuizScene = () => {
   }
 
   return (
-    <div className="quiz-wrapper">
-      { view[quizStatus] }
+    <div className="quiz-scene-wrapper">
+      <div className="quiz-wrapper">
+        { view[quizStatus] }  
+      </div>
     </div>
   );
 }

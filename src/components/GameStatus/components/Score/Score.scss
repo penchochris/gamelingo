@@ -1,4 +1,10 @@
 .score {
-  font-size: 2.5rem;
-  padding-right: 0.5rem;
+  font-size: 60px;
+  padding-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .score {
+    font-size: 20px;
+  }
 }

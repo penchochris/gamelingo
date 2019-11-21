@@ -15,21 +15,17 @@
 //CARD TYPES: 
 
 .main {
-  width: 45rem;
-  height: 15rem;
-
   border-radius: 5px;
-  font-size: 4rem;
-  margin: 0.5rem 0 3rem 0;
+  margin: 20px 0 20px 0;
+  height: 200px;
+  font-size: 70px;
 }
 
-.choose {
-  width: 20rem;
-  height: 10rem;
-  
+.choose {  
   border-radius: 5px;
-  font-size: 2rem;
-
+  width: 410px;
+  height: 200px;
+  font-size: 40px;
   &:hover { 
     cursor: pointer;
   }
@@ -41,4 +37,18 @@
 
 .correct {
   background: green;
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    width: 300px;
+    height: 80px;
+    font-size: 30px;
+  }
+
+  .choose {  
+    width: 300px;
+    height: 60px;
+    font-size: 20px;
+  }
 }

@@ -1,19 +1,25 @@
 @import "variables.scss";
 
 body {
-  font: roboto;
   background-color: $greyScale1;
+}
+
+.web-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-container {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 100%;
   display: flex;
-  flex-flow: wrap;
   background-color: $greyScale2;
   border-bottom: solid 1px $greyScale3;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height: $navHeight;
 }
 
 .nav-item {

@@ -1,4 +1,11 @@
 .timer {
-  font-size: 3.5rem;
-  padding-right:1.2em;
+  padding-right:130px;
+  font-size: 80px;
+}
+
+@media only screen and (max-width: 600px) {
+  .timer {
+    padding-right:45px;
+    font-size: 30px;
+  }
 }

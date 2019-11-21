@@ -11,7 +11,7 @@ import NotFoundScene from './scenes/NotFoundScene/NotFoundScene';
 const App = () =>
   <Provider store={Store}>
     <Router>
-      <div>
+      <div className="web-wrapper">
         <nav>
           <ul className="nav-container">
             <li >
