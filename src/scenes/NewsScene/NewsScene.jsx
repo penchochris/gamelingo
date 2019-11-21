@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const NewsScene = () => {  
   return (
     <div className="choose-game">

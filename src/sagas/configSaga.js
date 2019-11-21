@@ -1,7 +1,6 @@
 import { put, takeLatest, select } from 'redux-saga/effects';
 
 import { 
-  changeIsPlaying,
   nextQuiz,
   resetQuiz,
   scoreUp,
@@ -9,10 +8,11 @@ import {
   damageLifes,
   resetLifes,
   nextQuizSaga,
+  setQuizStatus,
 } from '../actions/configActions';
 import { resetTimer, startTimerSaga, stopTimerSaga } from '../actions/timerActions';
 
-import { TYPES } from '../consts';
+import { TYPES, DEFAULT } from '../consts';
 
 function* newGame() {
   yield put(resetLifes());
@@ -23,16 +23,19 @@ function* newGame() {
 }
 
 function* endGame() {
+  const { config: { quizStatus } } = yield select();
+  if (quizStatus === DEFAULT.IS_PLAYING) {
+    yield put(setQuizStatus(DEFAULT.IS_SELECTING_OPTIONS));
+  }
   yield put(stopTimerSaga());
 }
 
 function* getNextQuestion() {
-  const { config, game } = yield select();
+  const { config, quiz } = yield select();
   const { currentQuiz, lifes } = config;
-  const { quiz } = game;
 
   if(currentQuiz === quiz.length - 1 || lifes === 0) {
-    yield put(changeIsPlaying());
+    yield put(setQuizStatus(DEFAULT.IS_VIEWING_STATS));
   } else {
     yield put(nextQuiz());
     yield put(resetTimer());
@@ -41,11 +44,11 @@ function* getNextQuestion() {
 
 function* selectQuizOption(action) {
   const { quizOption } = action;
-  const { game, config } = yield select();
+  const { quiz, config } = yield select();
   const { currentQuiz } = config;
 
 
-  if (game.quiz[currentQuiz].langB === quizOption) {
+  if (quiz[currentQuiz].langB === quizOption) {
     yield put(scoreUp())
   } else {
     yield put(damageLifes())

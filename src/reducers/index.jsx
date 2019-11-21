@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { gameReducer } from './gameReducer';
+import { quizReducer } from './quizReducer';
 import { configReducer } from './configReducer';
 import { timerReducer } from './timerReducer';
 
 const reducers = combineReducers({
-  game: gameReducer,
+  quiz: quizReducer,
   config: configReducer,
   timer: timerReducer,
 });

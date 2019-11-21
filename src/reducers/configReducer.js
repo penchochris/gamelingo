@@ -1,7 +1,7 @@
 import { TYPES, DEFAULT, LANGUAGES } from '../consts';
 
 const initialState = {
-  isPlaying: true,
+  quizStatus: DEFAULT.IS_SELECTING_OPTIONS,
   totalLifes: DEFAULT.TOTAL_LIFES,
   lifes: DEFAULT.TOTAL_LIFES,
   score: 0,
@@ -15,7 +15,7 @@ export const configReducer = (state = initialState, action) => {
   const states = {
     [TYPES.DAMAGE_LIFES]: { ...state, lifes: state.lifes - 1 },
     [TYPES.RESET_LIFES]: { ...state, lifes: DEFAULT.TOTAL_LIFES },
-    [TYPES.CHANGE_IS_PLAYING]: { ...state, isPlaying: !state.isPlaying },
+    [TYPES.SET_QUIZ_STATUS]: { ...state, quizStatus: action.quizStatus },
     [TYPES.SCORE_UP]: { ...state, score: state.score + DEFAULT.SCORE_UP },
     [TYPES.RESET_SCORE]: { ...state, score: 0 },
     [TYPES.NEXT_QUIZ]: { ...state, currentQuiz: state.currentQuiz + 1 },
