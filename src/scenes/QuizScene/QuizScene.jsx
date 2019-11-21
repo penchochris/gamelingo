@@ -16,7 +16,12 @@ const QuizScene = () => {
 
   const view = {
     [DEFAULT.IS_SELECTING_OPTIONS]: <NewGameMenu/>,
-    [DEFAULT.IS_PLAYING]: <div><GameStatus/><QuizGame/></div>,
+    [DEFAULT.IS_PLAYING]: (
+      <>
+        <GameStatus/>
+        <QuizGame/>
+      </>
+    ),
     [DEFAULT.IS_VIEWING_STATS]: <GameResults/>
   }
 

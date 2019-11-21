@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectQuizOptionSaga, newGameSaga, endGameSaga, setQuizStatus } from '../../actions/configActions';
+import { selectQuizOptionSaga, newGameSaga, endGameSaga } from '../../actions/configActions';
 
 
 import Card from '../../components/Card/Card';
@@ -29,7 +29,7 @@ const QuizGame = () => {
       <div className="choose-card-wrapper">
         { 
           quiz[currentQuiz].options &&
-            quiz[currentQuiz].options.map( (option, i) => 
+            quiz[currentQuiz].options.map((option, i) => 
               <Card type="choose" key={i} text={option} handleClick={() => dispatch(selectQuizOptionSaga(option))}/>
             )
         }
