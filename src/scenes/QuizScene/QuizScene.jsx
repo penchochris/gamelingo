@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { VIEWS } from '../../consts';
 
 
 import NewGameMenu from '../../components/NewGameMenu/NewGameMenu';
@@ -8,27 +9,24 @@ import GameResults from '../../components/GameResults/GameResults';
 import GameStatus from '../../components/GameStatus/GameStatus';
 
 import './QuizScene.scss';
-import { DEFAULT } from '../../consts';
 
 const QuizScene = () => {
 
-  const { quizStatus } = useSelector(state => state.config);
-
-  const view = {
-    [DEFAULT.IS_SELECTING_OPTIONS]: <NewGameMenu/>,
-    [DEFAULT.IS_PLAYING]: (
-      <>
-        <GameStatus/>
-        <QuizGame/>
-      </>
-    ),
-    [DEFAULT.IS_VIEWING_STATS]: <GameResults/>
-  }
+  const { quizView } = useSelector(state => state.view);
 
   return (
     <div className="quiz-scene-wrapper">
       <div className="quiz-wrapper">
-        { view[quizStatus] }  
+        {{
+          [VIEWS.OPTIONS]: <NewGameMenu/>,
+          [VIEWS.PLAY]: (
+            <>
+              <GameStatus/>
+              <QuizGame/>
+            </>
+          ),
+          [VIEWS.STATS]: <GameResults/>
+        }[quizView]}  
       </div>
     </div>
   );

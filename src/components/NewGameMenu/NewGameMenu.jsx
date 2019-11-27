@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchQuizSaga } from '../../actions/quizActions';
-import { setQuizStatus } from '../../actions/configActions';
 
 import { Formik } from 'formik';
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,7 +9,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 
-import { DEFAULT } from '../../consts';
 import './NewGameMenu.scss';
 
 const useStyles = makeStyles(theme => ({
@@ -35,7 +33,6 @@ const NewGameMenu = () => {
       initialValues={{ langA: '', langB: '', category: '' }}
       onSubmit={values => {
         dispatch(fetchQuizSaga(values));
-        dispatch(setQuizStatus(DEFAULT.IS_PLAYING));
       }}
     >
       {props => {

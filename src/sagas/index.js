@@ -1,13 +1,12 @@
 import { all } from 'redux-saga/effects';
-import { configSaga } from './configSaga';
-import { timerSaga } from './timerSaga';
-import { quizSaga } from './quizSaga';
+
+import { handleGameSaga } from './handleGameSaga';
+import { handleUnmountSaga } from './handleUnmountSaga';
 
 function* sagas () {
   yield all([
-    ...timerSaga,
-    ...configSaga,
-    ...quizSaga,
+    ...handleGameSaga,
+    ...handleUnmountSaga,
   ]);
 }
 

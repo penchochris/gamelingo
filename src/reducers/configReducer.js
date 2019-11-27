@@ -1,21 +1,18 @@
-import { TYPES, DEFAULT, LANGUAGES } from '../consts';
+import { TYPES, DEFAULT } from '../consts';
 
 const initialState = {
-  quizStatus: DEFAULT.IS_SELECTING_OPTIONS,
   totalLifes: DEFAULT.TOTAL_LIFES,
   lifes: DEFAULT.TOTAL_LIFES,
   score: 0,
   currentQuiz: 0,
-  //TODO: change to ''
-  langA: LANGUAGES.SPANISH,
-  langB: LANGUAGES.JAPANESE_KANA,
+  langA: '',
+  langB: '',
 };
 
 export const configReducer = (state = initialState, action) => {
   const states = {
     [TYPES.DAMAGE_LIFES]: { ...state, lifes: state.lifes - 1 },
     [TYPES.RESET_LIFES]: { ...state, lifes: DEFAULT.TOTAL_LIFES },
-    [TYPES.SET_QUIZ_STATUS]: { ...state, quizStatus: action.quizStatus },
     [TYPES.SCORE_UP]: { ...state, score: state.score + DEFAULT.SCORE_UP },
     [TYPES.RESET_SCORE]: { ...state, score: 0 },
     [TYPES.NEXT_QUIZ]: { ...state, currentQuiz: state.currentQuiz + 1 },

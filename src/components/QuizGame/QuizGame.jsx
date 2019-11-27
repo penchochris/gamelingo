@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectQuizOptionSaga, newGameSaga, endGameSaga } from '../../actions/configActions';
-
+import { selectQuizOptionSaga, newGameSaga } from '../../actions/configActions';
+import { stopTimerSaga } from '../../actions/timerActions';
 
 import Card from '../../components/Card/Card';
 
 import './QuizGame.scss';
+import { VIEWS } from '../../consts';
+import { handleUnmount } from '../../actions/viewActions';
 
 const QuizGame = () => {
   const dispatch = useDispatch();
@@ -17,7 +19,8 @@ const QuizGame = () => {
   useEffect(() => {
     dispatch(newGameSaga());
     return () => {
-      dispatch(endGameSaga());
+      dispatch(stopTimerSaga());
+      dispatch(handleUnmount(VIEWS.PLAY));
     }
   }, [dispatch]);
 

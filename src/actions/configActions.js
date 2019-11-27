@@ -6,8 +6,6 @@ export const endGameSaga = () => ({ type: TYPES.END_GAME_SAGA });
 export const damageLifes = () => ({ type: TYPES.DAMAGE_LIFES });
 export const resetLifes = () => ({ type: TYPES.RESET_LIFES });
 
-export const setQuizStatus = quizStatus => ({ type: TYPES.SET_QUIZ_STATUS, quizStatus });
-
 export const nextQuiz = () => ({ type: TYPES.NEXT_QUIZ });
 export const resetQuiz = () => ({ type: TYPES.RESET_QUIZ });
 
