@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { VIEWS } from '../../consts';
-import './GameResults.scss';
+import './GameStats.scss';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const GameResults = () => {
+const GameStats = () => {
   const { score } = useSelector(state => state.config);
   const dispatch = useDispatch();
 
@@ -23,14 +23,14 @@ const GameResults = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(handleUnmount(VIEWS.RESULTS));
+      dispatch(handleUnmount(VIEWS.STATS));
     }
   }, [dispatch]);
 
   return ( 
-    <div className="game-results-wrapper">
-      <h1 className="game-results-game-over">GAME OVER</h1>
-      <h2 className="game-results-score">SCORE: {score}</h2>
+    <div className="game-stats-wrapper">
+      <h1 className="game-stats-game-over">GAME OVER</h1>
+      <h2 className="game-stats-score">SCORE: {score}</h2>
       <Button variant="outlined" className={classes.button} onClick={() => dispatch(setQuizView(VIEWS.PLAY))}>
         PLAY AGAIN
       </Button>
@@ -41,4 +41,4 @@ const GameResults = () => {
   );
 }
  
-export default GameResults;
+export default GameStats;

@@ -5,7 +5,7 @@ import { VIEWS } from '../../consts';
 
 import NewGameMenu from '../../components/NewGameMenu/NewGameMenu';
 import QuizGame from '../../components/QuizGame/QuizGame';
-import GameResults from '../../components/GameResults/GameResults';
+import GameStats from '../../components/GameStats/GameStats';
 import GameStatus from '../../components/GameStatus/GameStatus';
 
 import './QuizScene.scss';
@@ -25,7 +25,7 @@ const QuizScene = () => {
               <QuizGame/>
             </>
           ),
-          [VIEWS.STATS]: <GameResults/>
+          [VIEWS.STATS]: <GameStats/>
         }[quizView]}  
       </div>
     </div>

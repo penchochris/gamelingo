@@ -9,7 +9,7 @@ import './GameStatus.scss'
 const GameStatus = () => {
 
   return (  
-    <div className="game-menu">
+    <div className="game-status">
       <Lifes/>
       <Timer/>
       <Score/>

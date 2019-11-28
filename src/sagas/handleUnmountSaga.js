@@ -11,7 +11,7 @@ function* handleUnmount(action) {
     yield put(setQuizView(VIEWS.OPTIONS))
   }
 
-  if ( from === VIEWS.RESULTS && quizView === VIEWS.RESULTS) {
+  if ( from === VIEWS.STATS && quizView === VIEWS.STATS) {
     yield put(setQuizView(VIEWS.OPTIONS))
   }
 }

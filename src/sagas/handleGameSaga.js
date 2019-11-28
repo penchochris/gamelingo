@@ -2,12 +2,10 @@ import { put, takeLatest, select, delay, fork, take, cancel, call } from 'redux-
 
 import { 
   nextQuiz,
-  resetQuiz,
   scoreUp,
-  resetScore,
   damageLifes,
-  resetLifes,
   nextQuizSaga,
+  resetConfig,
 } from '../actions/configActions';
 import { setQuizView } from '../actions/viewActions';
 import { setQuiz } from '../actions/quizActions';
@@ -17,10 +15,7 @@ import { TYPES, VIEWS } from '../consts';
 import axios from 'axios';
 
 function* newGame() {
-  yield put(resetLifes());
-  yield put(resetQuiz());
-  yield put(resetScore());
-  yield put(resetTimer());
+  yield put(resetConfig());
   yield put(startTimerSaga());
 }
 
@@ -63,8 +58,6 @@ function* fetchQuiz(action) {
   }
 
   const quiz = yield call(apiCall);
-
-  console.log(quiz);
   
   if (!quiz) return;
 
