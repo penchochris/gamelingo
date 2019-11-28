@@ -14,6 +14,7 @@ import { setQuiz } from '../actions/quizActions';
 import { resetTimer, startTimerSaga, tickTimer } from '../actions/timerActions';
 
 import { TYPES, VIEWS } from '../consts';
+import axios from 'axios';
 
 function* newGame() {
   yield put(resetLifes());
@@ -31,7 +32,7 @@ function* getNextQuestion() {
     yield put(setQuizView(VIEWS.STATS));
   } else {
     yield put(nextQuiz());
-    //yield put(resetTimer());
+    yield put(resetTimer());
   }
 }
 
@@ -50,19 +51,21 @@ function* selectQuizOption(action) {
 }
 
 function* fetchQuiz(action) {
-  //TODO: get with category and languages
-  //const { values: { category, langA, langB } } = action;
+  const { values } = action;
 
-  //TODO: catch to Snackbar
-  const api = url => 
-    fetch(url)
-      .then(res => res.json())
-      .catch(err => {
-        console.log('To snackbar');
-      });
+  //TODO: catch to Snackbar // Send apiCall out of here
+  const apiCall = () => {
+    return axios.post('http://localhost:5000/quiz', values,
+   ).then(response => response.data)
+    .catch(err => {
+      throw err;
+    });
+  }
 
-  const quiz = yield call(api, 'http://localhost:5000/quiz');
+  const quiz = yield call(apiCall);
 
+  console.log(quiz);
+  
   if (!quiz) return;
 
   if (quiz.length > 0) {

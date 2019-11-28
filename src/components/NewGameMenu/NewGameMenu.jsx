@@ -102,7 +102,6 @@ const NewGameMenu = () => {
                 }}
               >
                 <option value="" />
-                <option value={'animals'}>Animals</option>
                 <option value={'colors'}>Colors</option>
               </Select>
             </FormControl>
