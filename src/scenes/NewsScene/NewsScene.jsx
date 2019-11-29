@@ -1,9 +1,15 @@
 import React from 'react';
 
+import New from '../../components/New/New';
+
+import './NewsScene.scss';
+
 const NewsScene = () => {  
   return (
-    <div className="choose-game">
-      News will be here
+    <div className="news-wrapper">
+      <New/>
+      <New/>
+      <New/>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { VIEWS } from '../../consts';
 
 
 import NewGameMenu from '../../components/NewGameMenu/NewGameMenu';
-import QuizGame from '../../components/QuizGame/QuizGame';
+import GameOptions from '../../components/GameOptions/GameOptions';
 import GameStats from '../../components/GameStats/GameStats';
 import GameStatus from '../../components/GameStatus/GameStatus';
 
@@ -16,18 +16,17 @@ const QuizScene = () => {
 
   return (
     <div className="quiz-scene-wrapper">
-      <div className="quiz-wrapper">
         {{
           [VIEWS.OPTIONS]: <NewGameMenu/>,
           [VIEWS.PLAY]: (
-            <>
+            <div className="quiz-wrapper">
               <GameStatus/>
-              <QuizGame/>
-            </>
+              <GameOptions/>
+            </div>
           ),
           [VIEWS.STATS]: <GameStats/>
         }[quizView]}  
-      </div>
+      
     </div>
   );
 }

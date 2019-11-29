@@ -12,14 +12,13 @@ import NotFoundScene from './scenes/NotFoundScene/NotFoundScene';
 const App = () =>
   <Provider store={Store}>
     <Router>
-      <div className="web-wrapper">
       <CustomSnackbar/>
         <nav>
           <ul className="nav-container">
-            <li >
+            <li>
               <Link to="/" className="nav-item">News</Link>
             </li>
-            <li >
+            <li>
               <Link to="/quiz-game" className="nav-item">Quiz Game</Link>
             </li>
           </ul>
@@ -30,7 +29,6 @@ const App = () =>
           <Route exact path="/" component={NewsScene} />
           <Route component={NotFoundScene} />
         </Switch>
-      </div>
     </Router>
   </Provider>
 

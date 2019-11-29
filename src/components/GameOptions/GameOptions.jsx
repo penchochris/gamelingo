@@ -5,11 +5,11 @@ import { selectQuizOptionSaga, newGameSaga, stopTimerSaga} from '../../actions/c
 
 import Card from '../../components/Card/Card';
 
-import './QuizGame.scss';
+import './GameOptions.scss';
 import { VIEWS } from '../../consts';
 import { handleUnmount } from '../../actions/viewActions';
 
-const QuizGame = () => {
+const GameOptions = () => {
   const dispatch = useDispatch();
 
   const quiz = useSelector(state => state.quiz);
@@ -24,7 +24,7 @@ const QuizGame = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       <div className="main-card-wrapper">
         <Card type="main" text={quiz[currentQuiz].langA}/>
       </div>
@@ -36,8 +36,8 @@ const QuizGame = () => {
             )
         }
       </div>
-    </div>
+    </>
   );
 }
 
-export default QuizGame;
+export default GameOptions;
