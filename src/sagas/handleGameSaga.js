@@ -60,12 +60,7 @@ function* fetchQuiz(action) {
 
   const { quiz, error } = yield call(apiCall);
   
-  console.log('hehehe')
-  console.log(error)
-  console.log(quiz)
-
   if (error) {
-    console.log(setSnackbar(SNACKBARS.GAME_ERROR))
     yield put(setSnackbar(SNACKBARS.GAME_ERROR));
     return;
   }
