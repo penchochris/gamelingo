@@ -2,14 +2,14 @@ import { combineReducers } from 'redux';
 
 import { quizReducer } from './quizReducer';
 import { configReducer } from './configReducer';
-import { timerReducer } from './timerReducer';
 import { viewReducer } from './viewReducer';
+import { snackbarReducer } from './snackbarReducer';
 
 const reducers = combineReducers({
   quiz: quizReducer,
   config: configReducer,
-  timer: timerReducer,
   view: viewReducer,
+  snackbar: snackbarReducer,
 });
 
 export default reducers;

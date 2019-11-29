@@ -6,16 +6,19 @@ import {
   damageLifes,
   nextQuizSaga,
   resetConfig,
+  resetTimer,
+  startTimerSaga,
+  tickTimer,
 } from '../actions/configActions';
 import { setQuizView } from '../actions/viewActions';
 import { setQuiz } from '../actions/quizActions';
-import { resetTimer, startTimerSaga, tickTimer } from '../actions/timerActions';
 
 import { TYPES, VIEWS } from '../consts';
 import axios from 'axios';
 
 function* newGame() {
   yield put(resetConfig());
+  yield put(resetTimer());
   yield put(startTimerSaga());
 }
 
@@ -73,8 +76,8 @@ function* timer() {
   while(true) {
     yield delay(1000);
     yield put(tickTimer());
-    const { timer } = yield select();
-    if(timer.seconds === 0) {
+    const { config: { timer } } = yield select();
+    if(timer === 0) {
       yield put(nextQuizSaga());
     }
   }

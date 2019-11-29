@@ -2,10 +2,8 @@
 
 .quiz-scene-wrapper {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
   align-items: center;
-  height: calc(100vh - #{$navHeight})
+  justify-content: center;
 }
 
 .quiz-wrapper {

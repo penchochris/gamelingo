@@ -5,6 +5,7 @@ const initialState = {
   lifes: DEFAULT.TOTAL_LIFES,
   score: 0,
   currentQuiz: 0,
+  timer: DEFAULT.TIMER,
 };
 
 export const configReducer = (state = initialState, action) => {
@@ -13,6 +14,8 @@ export const configReducer = (state = initialState, action) => {
     [TYPES.DAMAGE_LIFES]: { ...state, lifes: state.lifes - 1 },
     [TYPES.SCORE_UP]: { ...state, score: state.score + DEFAULT.SCORE_UP },
     [TYPES.NEXT_QUIZ]: { ...state, currentQuiz: state.currentQuiz + 1 },
+    [TYPES.TICK_TIMER]: { ...state, timer: state.timer - 1 },
+    [TYPES.RESET_TIMER]: { ...state, timer: DEFAULT.TIMER },
   };
 
   return states[action.type] || state;

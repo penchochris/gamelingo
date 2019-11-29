@@ -17,7 +17,7 @@ export const TYPES = {
   //TIMER:
   START_TIMER_SAGA: 'START_TIMER_SAGA',
   STOP_TIMER_SAGA: 'STOP_TIMER_SAGA',
-  
+
   TICK_TIMER: 'TICK_TIMER',
   RESET_TIMER: 'RESET_TIMER',
 
@@ -45,3 +45,19 @@ export const LANGUAGES = {
   JAPANESE_KANJI: 'japaneseKanji',
   JAPANESE_ROMAJI: 'japaneseRomaji',
 }
+
+export const VARIANTS = {
+  ERROR: 'error',
+  INFO: 'info',
+  WARNING: 'warning',
+  SUCCESS: 'success',
+}
+
+
+//TODO: i18n
+export const SNACKBARS = {
+  IMPORT_NAME_ERROR: { 
+    variant: VARIANTS.ERROR,
+    message: 'Error preparando el juego.' 
+  },
+};

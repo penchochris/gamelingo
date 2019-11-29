@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import './Timer.scss';
 
 const Timer = () => {
-  const seconds = useSelector(state => state.timer.seconds);
+  const timer = useSelector(state => state.config.timer);
   
   return (
-    <span className="timer">{seconds}</span>
+    <span className="timer">{timer}</span>
   );
 }
  

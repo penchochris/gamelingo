@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectQuizOptionSaga, newGameSaga } from '../../actions/configActions';
-import { stopTimerSaga } from '../../actions/timerActions';
+import { selectQuizOptionSaga, newGameSaga, stopTimerSaga} from '../../actions/configActions';
 
 import Card from '../../components/Card/Card';
 
