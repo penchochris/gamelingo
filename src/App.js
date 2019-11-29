@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import Store from './store/store';
 import './App.scss';
 
+import CustomSnackbar from './components/Snackbar/CustomSnackbar'
 import QuizScene from './scenes/QuizScene/QuizScene';
 import NewsScene from './scenes/NewsScene/NewsScene';
 import NotFoundScene from './scenes/NotFoundScene/NotFoundScene';
@@ -12,6 +13,7 @@ const App = () =>
   <Provider store={Store}>
     <Router>
       <div className="web-wrapper">
+      <CustomSnackbar/>
         <nav>
           <ul className="nav-container">
             <li >

@@ -24,6 +24,10 @@ export const TYPES = {
   //VIEW:
   SET_QUIZ_VIEW: 'SET_QUIZ_VIEW',
   HANDLE_UNMOUNT: 'HANDLE_UNMOUNT',
+
+  //SNACKBAR:
+  SET_SNACKBAR: 'SET_SNACKBAR',
+  CLOSE_SNACKBAR: 'CLOSE_SNACKBAR',
 };
 
 export const DEFAULT = {
@@ -56,8 +60,12 @@ export const VARIANTS = {
 
 //TODO: i18n
 export const SNACKBARS = {
-  IMPORT_NAME_ERROR: { 
+  GAME_ERROR: { 
     variant: VARIANTS.ERROR,
     message: 'Error preparando el juego.' 
+  },
+  GAME_NOT_FOUND: { 
+    variant: VARIANTS.WARNING,
+    message: 'No existen juegos con estos criterios.' 
   },
 };

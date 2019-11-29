@@ -8,9 +8,9 @@ const initialState = {
 
 export const snackbarReducer = (state = initialState, action) => {
   const states = {
-    [TYPES.SET_SNACKBAR_OPEN]: { ...state, open: action.open},
+    [TYPES.CLOSE_SNACKBAR]: { ...state, open: action.open},
     [TYPES.SET_SNACKBAR]: { 
-      ...state,
+      open: action.open,
       variant: action.variant,
       message: action.message 
     },

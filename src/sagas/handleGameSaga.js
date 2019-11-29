@@ -10,10 +10,11 @@ import {
   startTimerSaga,
   tickTimer,
 } from '../actions/configActions';
+import { setSnackbar } from '../actions/snackbarActions'
 import { setQuizView } from '../actions/viewActions';
 import { setQuiz } from '../actions/quizActions';
 
-import { TYPES, VIEWS } from '../consts';
+import { TYPES, VIEWS, SNACKBARS } from '../consts';
 import axios from 'axios';
 
 function* newGame() {
@@ -51,24 +52,29 @@ function* selectQuizOption(action) {
 function* fetchQuiz(action) {
   const { values } = action;
 
-  //TODO: catch to Snackbar // Send apiCall out of here
-  const apiCall = () => {
-    return axios.post('http://localhost:5000/quiz', values,
-   ).then(response => response.data)
-    .catch(err => {
-      throw err;
-    });
-  }
+  //TODO: url partially to environments vars
+  const apiCall = () => 
+    axios.post('http://localhost:5000/quiz', values)
+      .then(response => ({ quiz: response.data }))
+      .catch(err => ({ error: err}));
 
-  const quiz = yield call(apiCall);
+  const { quiz, error } = yield call(apiCall);
   
-  if (!quiz) return;
+  console.log('hehehe')
+  console.log(error)
+  console.log(quiz)
+
+  if (error) {
+    console.log(setSnackbar(SNACKBARS.GAME_ERROR))
+    yield put(setSnackbar(SNACKBARS.GAME_ERROR));
+    return;
+  }
 
   if (quiz.length > 0) {
     yield put(setQuiz(quiz));
     yield put(setQuizView(VIEWS.PLAY));
   } else {
-    //TODO: Message 'Quiz not found' to Snackbar
+    yield put(setSnackbar(SNACKBARS.GAME_NOT_FOUND))
   }
 }
 

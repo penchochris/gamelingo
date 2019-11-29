@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { closeSnackbar } from '../../../actions/snackbarActions';
+import { closeSnackbar } from '../../actions/snackbarActions';
 
 import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContentWrapper from './components/SnackbarContentWrapperSC/SnackbarContentWrapper';
